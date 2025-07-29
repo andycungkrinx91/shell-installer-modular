@@ -1,0 +1,17 @@
+[Unit]
+Description=Llama.cpp Server
+After=network.target
+
+[Service]
+User=__LLAMACPP_USER__
+Group=__LLAMACPP_USER__
+
+WorkingDirectory=/home/__LLAMACPP_USER__/site/llamacpp
+
+ExecStart=/usr/local/bin/llamacpp-server __EXEC_ARGS__
+
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
